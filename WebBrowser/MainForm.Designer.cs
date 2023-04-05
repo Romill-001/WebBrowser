@@ -1,0 +1,244 @@
+﻿namespace WebBrowser
+{
+    partial class MainForm
+    {
+        /// <summary>
+        /// Обязательная переменная конструктора.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary>
+        /// Освободить все используемые ресурсы.
+        /// </summary>
+        /// <param name="disposing">истинно, если управляемый ресурс должен быть удален; иначе ложно.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Код, автоматически созданный конструктором форм Windows
+
+        /// <summary>
+        /// Требуемый метод для поддержки конструктора — не изменяйте 
+        /// содержимое этого метода с помощью редактора кода.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            this.searchBar = new System.Windows.Forms.TextBox();
+            this.label = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.prevButton = new System.Windows.Forms.Button();
+            this.nextButton = new System.Windows.Forms.Button();
+            this.stopLoadButton = new System.Windows.Forms.Button();
+            this.settingsButton = new System.Windows.Forms.Button();
+            this.secSearchBar = new System.Windows.Forms.TextBox();
+            this.searchButton = new System.Windows.Forms.Button();
+            this.secSearchButton = new System.Windows.Forms.Button();
+            this.refreshButton = new System.Windows.Forms.Button();
+            this.addToFavList = new System.Windows.Forms.Button();
+            this.SuspendLayout();
+            // 
+            // searchBar
+            // 
+            this.searchBar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.searchBar.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.searchBar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.searchBar.Location = new System.Drawing.Point(158, 171);
+            this.searchBar.Name = "searchBar";
+            this.searchBar.Size = new System.Drawing.Size(433, 21);
+            this.searchBar.TabIndex = 0;
+            this.searchBar.WordWrap = false;
+            // 
+            // label
+            // 
+            this.label.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.label.AutoSize = true;
+            this.label.Font = new System.Drawing.Font("Calibri", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label.Location = new System.Drawing.Point(331, 117);
+            this.label.Name = "label";
+            this.label.Size = new System.Drawing.Size(107, 33);
+            this.label.TabIndex = 1;
+            this.label.Text = "Браузер";
+            // 
+            // label1
+            // 
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label1.Location = new System.Drawing.Point(303, 207);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(144, 16);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "Введите URL адрес...";
+            // 
+            // prevButton
+            // 
+            this.prevButton.BackColor = System.Drawing.SystemColors.Window;
+            this.prevButton.Enabled = false;
+            this.prevButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.prevButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.prevButton.Location = new System.Drawing.Point(4, 5);
+            this.prevButton.Name = "prevButton";
+            this.prevButton.Size = new System.Drawing.Size(22, 22);
+            this.prevButton.TabIndex = 4;
+            this.prevButton.Text = "<";
+            this.prevButton.UseVisualStyleBackColor = false;
+            this.prevButton.Click += new System.EventHandler(this.prevButton_Click);
+            // 
+            // nextButton
+            // 
+            this.nextButton.BackColor = System.Drawing.SystemColors.Window;
+            this.nextButton.Enabled = false;
+            this.nextButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.nextButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.nextButton.Location = new System.Drawing.Point(32, 5);
+            this.nextButton.Name = "nextButton";
+            this.nextButton.Size = new System.Drawing.Size(22, 22);
+            this.nextButton.TabIndex = 5;
+            this.nextButton.Text = ">";
+            this.nextButton.UseVisualStyleBackColor = false;
+            this.nextButton.Click += new System.EventHandler(this.nextButton_Click);
+            // 
+            // stopLoadButton
+            // 
+            this.stopLoadButton.BackColor = System.Drawing.SystemColors.Window;
+            this.stopLoadButton.Enabled = false;
+            this.stopLoadButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.stopLoadButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.stopLoadButton.Location = new System.Drawing.Point(88, 5);
+            this.stopLoadButton.Name = "stopLoadButton";
+            this.stopLoadButton.Size = new System.Drawing.Size(22, 22);
+            this.stopLoadButton.TabIndex = 6;
+            this.stopLoadButton.Text = "X";
+            this.stopLoadButton.UseVisualStyleBackColor = false;
+            this.stopLoadButton.Click += new System.EventHandler(this.stopLoadButton_Click);
+            // 
+            // settingsButton
+            // 
+            this.settingsButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.settingsButton.BackColor = System.Drawing.SystemColors.Window;
+            this.settingsButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.settingsButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.settingsButton.Location = new System.Drawing.Point(770, 5);
+            this.settingsButton.Name = "settingsButton";
+            this.settingsButton.Size = new System.Drawing.Size(30, 22);
+            this.settingsButton.TabIndex = 7;
+            this.settingsButton.Text = "...";
+            this.settingsButton.UseVisualStyleBackColor = false;
+            // 
+            // secSearchBar
+            // 
+            this.secSearchBar.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.secSearchBar.BackColor = System.Drawing.SystemColors.Window;
+            this.secSearchBar.Enabled = false;
+            this.secSearchBar.Location = new System.Drawing.Point(144, 6);
+            this.secSearchBar.Name = "secSearchBar";
+            this.secSearchBar.ReadOnly = true;
+            this.secSearchBar.Size = new System.Drawing.Size(592, 20);
+            this.secSearchBar.TabIndex = 8;
+            // 
+            // searchButton
+            // 
+            this.searchButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.searchButton.BackColor = System.Drawing.SystemColors.Window;
+            this.searchButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.searchButton.Image = global::WebBrowser.Properties.Resources.icons8_search_22;
+            this.searchButton.Location = new System.Drawing.Point(597, 170);
+            this.searchButton.MaximumSize = new System.Drawing.Size(22, 22);
+            this.searchButton.MinimumSize = new System.Drawing.Size(22, 22);
+            this.searchButton.Name = "searchButton";
+            this.searchButton.Size = new System.Drawing.Size(22, 22);
+            this.searchButton.TabIndex = 3;
+            this.searchButton.UseVisualStyleBackColor = false;
+            this.searchButton.Click += new System.EventHandler(this.searchButton_Click);
+            // 
+            // secSearchButton
+            // 
+            this.secSearchButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.secSearchButton.BackColor = System.Drawing.SystemColors.Window;
+            this.secSearchButton.Enabled = false;
+            this.secSearchButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.secSearchButton.Image = global::WebBrowser.Properties.Resources.icons8_search_22;
+            this.secSearchButton.Location = new System.Drawing.Point(742, 5);
+            this.secSearchButton.MaximumSize = new System.Drawing.Size(22, 22);
+            this.secSearchButton.MinimumSize = new System.Drawing.Size(22, 22);
+            this.secSearchButton.Name = "secSearchButton";
+            this.secSearchButton.Size = new System.Drawing.Size(22, 22);
+            this.secSearchButton.TabIndex = 9;
+            this.secSearchButton.UseVisualStyleBackColor = false;
+            this.secSearchButton.Click += new System.EventHandler(this.secSearchButton_Click);
+            // 
+            // refreshButton
+            // 
+            this.refreshButton.BackColor = System.Drawing.SystemColors.Window;
+            this.refreshButton.Enabled = false;
+            this.refreshButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.refreshButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.refreshButton.Location = new System.Drawing.Point(60, 5);
+            this.refreshButton.Name = "refreshButton";
+            this.refreshButton.Size = new System.Drawing.Size(22, 22);
+            this.refreshButton.TabIndex = 10;
+            this.refreshButton.Text = "O";
+            this.refreshButton.UseVisualStyleBackColor = false;
+            this.refreshButton.Click += new System.EventHandler(this.refreshButton_Click);
+            // 
+            // addToFavList
+            // 
+            this.addToFavList.BackColor = System.Drawing.SystemColors.Window;
+            this.addToFavList.Enabled = false;
+            this.addToFavList.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.addToFavList.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.addToFavList.Location = new System.Drawing.Point(116, 5);
+            this.addToFavList.Name = "addToFavList";
+            this.addToFavList.Size = new System.Drawing.Size(22, 22);
+            this.addToFavList.TabIndex = 11;
+            this.addToFavList.Text = "X";
+            this.addToFavList.UseVisualStyleBackColor = false;
+            // 
+            // MainForm
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(804, 451);
+            this.Controls.Add(this.addToFavList);
+            this.Controls.Add(this.refreshButton);
+            this.Controls.Add(this.secSearchButton);
+            this.Controls.Add(this.secSearchBar);
+            this.Controls.Add(this.settingsButton);
+            this.Controls.Add(this.stopLoadButton);
+            this.Controls.Add(this.nextButton);
+            this.Controls.Add(this.prevButton);
+            this.Controls.Add(this.searchButton);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.label);
+            this.Controls.Add(this.searchBar);
+            this.HelpButton = true;
+            this.MinimumSize = new System.Drawing.Size(820, 490);
+            this.Name = "MainForm";
+            this.Text = "Поисковик";
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
+        }
+
+        #endregion
+
+        private System.Windows.Forms.TextBox searchBar;
+        private System.Windows.Forms.Label label;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button searchButton;
+        private System.Windows.Forms.Button prevButton;
+        private System.Windows.Forms.Button nextButton;
+        private System.Windows.Forms.Button stopLoadButton;
+        private System.Windows.Forms.Button settingsButton;
+        private System.Windows.Forms.TextBox secSearchBar;
+        private System.Windows.Forms.Button secSearchButton;
+        private System.Windows.Forms.Button refreshButton;
+        private System.Windows.Forms.Button addToFavList;
+    }
+}
+
