@@ -5,6 +5,7 @@ using System.ComponentModel.Design.Serialization;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -24,6 +25,7 @@ namespace WebBrowser
         public Rectangle origUCSizeFav;
         XmlDocument data = new XmlDocument();
         XmlDocument dataFav = new XmlDocument();
+        public int index = -1;
         public MainForm()
         {
             data.Load(@"./../../HistoryData.xml");
@@ -39,6 +41,7 @@ namespace WebBrowser
         {
             if (!String.IsNullOrEmpty(searchBar.Text))
             {
+                index += 1;
                 secSearchBar.Text = searchBar.Text;
                 secSearchBar.ReadOnly = false;
                 secSearchBar.Enabled = true;
@@ -62,15 +65,26 @@ namespace WebBrowser
         }
         private void prevButton_Click(object sender, EventArgs e)
         {
+            if (index >= 0 && index < hp.hist.Count)
+            {
+                secSearchBar.Text = hp.hist[index - 1].Split(' ').ToArray()[0];
+                index -= 1;
+            }
             wp.Prev();
             nextButton.Enabled = true;
         }
         private void nextButton_Click(object sender, EventArgs e)
         {
+            if (index >= 0 && index < hp.hist.Count)
+            {
+                secSearchBar.Text = hp.hist[index + 1].Split(' ').ToArray()[0];
+                index += 1;
+            }
             wp.Next();
         }
         private void secSearchButton_Click(object sender, EventArgs e)
         {
+            index += 1;
             wp.URL = secSearchBar.Text;
             prevButton.Enabled = true;
             wp.Navigate();
@@ -90,6 +104,7 @@ namespace WebBrowser
             {
                 if (!String.IsNullOrEmpty(searchBar.Text))
                 {
+                    index += 1;
                     secSearchBar.Text = searchBar.Text;
                     secSearchBar.ReadOnly = false;
                     secSearchBar.Enabled = true;
@@ -111,6 +126,7 @@ namespace WebBrowser
         {
             if (e.KeyChar == (char)Keys.Enter)
             {
+                index += 1;
                 wp.URL = secSearchBar.Text;
                 wp.Navigate();
             }
@@ -220,10 +236,10 @@ namespace WebBrowser
         }
         public void DeleteDataFav(string url)
         {
-            XmlElement root = data.DocumentElement;
-            XmlNode node = root.SelectSingleNode($"site[url='{url}']");
-            root.RemoveChild(node);
-            data.Save(@"./../../FavData.xml");
+                XmlElement root = dataFav.DocumentElement;
+                XmlNode node = root.SelectSingleNode($"site[url='{url}']");
+                root.RemoveChild(node);
+                dataFav.Save(@"./../../FavData.xml");
         }
     }   
 }

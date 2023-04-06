@@ -60,7 +60,7 @@ namespace WebBrowser
         private void deleteBtn_Click(object sender, EventArgs e)
         {
             int this_tag = int.Parse(((Button)sender).Tag.ToString());
-            for (int i = 0; i < Panels.Count; i++)
+            for (int i = 0; i < fav.Count; i++)
             {
                 if (Panels[i].Tag.Equals(this_tag))
                 {
@@ -72,14 +72,15 @@ namespace WebBrowser
                     }
                 }
             }
+            Del();
         }
         public void Del()
         {
             MainForm m = new MainForm();
             foreach(string t in deleted)
             {
-                fav.Remove(t);
                 m.DeleteDataFav(t);
+                fav.Remove(t);
             }
         }
         private void closeButton_Click(object sender, EventArgs e)
@@ -89,7 +90,6 @@ namespace WebBrowser
             {
                 Panels[i].Dispose();
             }
-            Del();
             Panels.Clear();
         }
     }

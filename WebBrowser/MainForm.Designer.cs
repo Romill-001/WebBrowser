@@ -53,10 +53,10 @@
             // 
             this.searchBar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.searchBar.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.searchBar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.searchBar.Location = new System.Drawing.Point(158, 170);
+            this.searchBar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.searchBar.Location = new System.Drawing.Point(158, 169);
             this.searchBar.Name = "searchBar";
-            this.searchBar.Size = new System.Drawing.Size(433, 22);
+            this.searchBar.Size = new System.Drawing.Size(433, 24);
             this.searchBar.TabIndex = 0;
             this.searchBar.WordWrap = false;
             this.searchBar.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.SearchKeyPressForMainSearchbar);
@@ -65,10 +65,10 @@
             // 
             this.label.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.label.AutoSize = true;
-            this.label.Font = new System.Drawing.Font("Calibri", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label.Font = new System.Drawing.Font("Consolas", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label.Location = new System.Drawing.Point(331, 117);
             this.label.Name = "label";
-            this.label.Size = new System.Drawing.Size(107, 33);
+            this.label.Size = new System.Drawing.Size(119, 32);
             this.label.TabIndex = 1;
             this.label.Text = "Браузер";
             // 
@@ -76,10 +76,10 @@
             // 
             this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.Location = new System.Drawing.Point(303, 207);
+            this.label1.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label1.Location = new System.Drawing.Point(286, 209);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(144, 16);
+            this.label1.Size = new System.Drawing.Size(210, 22);
             this.label1.TabIndex = 2;
             this.label1.Text = "Введите URL адрес...";
             // 
@@ -133,11 +133,11 @@
             this.secSearchBar.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.secSearchBar.BackColor = System.Drawing.SystemColors.Window;
             this.secSearchBar.Enabled = false;
-            this.secSearchBar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.secSearchBar.Location = new System.Drawing.Point(144, 5);
+            this.secSearchBar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.secSearchBar.Location = new System.Drawing.Point(144, 3);
             this.secSearchBar.Name = "secSearchBar";
             this.secSearchBar.ReadOnly = true;
-            this.secSearchBar.Size = new System.Drawing.Size(592, 22);
+            this.secSearchBar.Size = new System.Drawing.Size(592, 24);
             this.secSearchBar.TabIndex = 8;
             this.secSearchBar.Visible = false;
             this.secSearchBar.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.secSearchBar_KeyPress);
@@ -237,7 +237,7 @@
             // закладкиToolStripMenuItem
             // 
             this.закладкиToolStripMenuItem.Name = "закладкиToolStripMenuItem";
-            this.закладкиToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
+            this.закладкиToolStripMenuItem.Size = new System.Drawing.Size(151, 24);
             this.закладкиToolStripMenuItem.Text = "Закладки";
             this.закладкиToolStripMenuItem.Click += new System.EventHandler(this.закладкиToolStripMenuItem_Click);
             // 
