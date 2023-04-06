@@ -7,12 +7,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml;
 
 namespace WebBrowser
 {
     public partial class HistoryPage : UserControl
     {
         public List<Panel> Panels = new List<Panel>();
+        public List<string> hist = new List<string>();
         public bool check { get; set; }
         public HistoryPage()
         {
@@ -36,7 +38,7 @@ namespace WebBrowser
                 {
                     BorderStyle = BorderStyle.FixedSingle,
                     Location = new Point(2, 64 + 30 * i),
-                    Size = new Size(150, 30),
+                    Size = new Size(700, 30),
                     Tag = i,
                     BackColor = SystemColors.ControlLightLight
                 };
@@ -45,19 +47,25 @@ namespace WebBrowser
                 Panels.Add(panel);
             }
         }
-
         private void closeButton_Click(object sender, EventArgs e)
         {
             this.Hide();
         }
-
         private void clearButton_Click(object sender, EventArgs e)
         {
-            foreach (var panel in Panels)
+            if (!hist.Count.Equals(0))
             {
-                panel.Visible = false;
+                hist.Clear();
+                foreach (var panel in Panels)
+                {
+                    panel.Visible = false;
+                }
+                check = true;
             }
-            check = false;
+            else
+            {
+                MessageBox.Show("История посика уже очищена.");
+            }
         }
     }
 }

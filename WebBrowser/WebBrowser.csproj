@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FavPage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="FavPage.Designer.cs">
+      <DependentUpon>FavPage.cs</DependentUpon>
+    </Compile>
     <Compile Include="HistoryPage.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -66,6 +72,9 @@
     <Compile Include="WebPage.Designer.cs">
       <DependentUpon>WebPage.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="FavPage.resx">
+      <DependentUpon>FavPage.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="HistoryPage.resx">
       <DependentUpon>HistoryPage.cs</DependentUpon>
     </EmbeddedResource>
@@ -100,6 +109,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\icons8-search-22.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="HistoryData.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

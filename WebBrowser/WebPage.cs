@@ -17,6 +17,7 @@ namespace WebBrowser
         public WebPage()
         {
             InitializeComponent();
+            webBrowserPage.ContextMenuStrip = contextMenu;
         }
         public void Navigate()
         {
@@ -51,6 +52,11 @@ namespace WebBrowser
         public void Cancel()
         {
             webBrowserPage.Stop();
+        }
+
+        private void сохранитьСтраницуToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            webBrowserPage.ShowSaveAsDialog();
         }
     }
 }
