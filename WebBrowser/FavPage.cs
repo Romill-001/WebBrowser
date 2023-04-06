@@ -75,9 +75,11 @@ namespace WebBrowser
         }
         public void Del()
         {
+            MainForm m = new MainForm();
             foreach(string t in deleted)
             {
                 fav.Remove(t);
+                m.DeleteDataFav(t);
             }
         }
         private void closeButton_Click(object sender, EventArgs e)

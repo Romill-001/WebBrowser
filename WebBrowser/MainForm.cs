@@ -23,15 +23,17 @@ namespace WebBrowser
         public Rectangle origUCSizeHis;
         public Rectangle origUCSizeFav;
         XmlDocument data = new XmlDocument();
+        XmlDocument dataFav = new XmlDocument();
         public MainForm()
         {
             data.Load(@"./../../HistoryData.xml");
+            dataFav.Load(@"./../../FavData.xml");
             wp.Location = new Point(0, 31);
             hp.Location = new Point(0, 31);
             fp.Location= new Point(0, 31);
-            ToList(hp.hist, data.DocumentElement);
+            ToListHis(hp.hist, data.DocumentElement);
+            ToListFav(fp.fav, dataFav.DocumentElement);
             InitializeComponent();
-            foreach (XmlNode elem in data.DocumentElement) elem.RemoveAll();
         }
         private void searchButton_Click(object sender, EventArgs e)
         {
@@ -49,7 +51,7 @@ namespace WebBrowser
                 wp.URL = secSearchBar.Text;
                 wp.Navigate();
                 SetPage(wp);
-                SaveToXml(secSearchBar.Text);
+                SaveToXmlHis(secSearchBar.Text);
             }
         }
         private void SetPage(UserControl wp)
@@ -72,7 +74,7 @@ namespace WebBrowser
             wp.URL = secSearchBar.Text;
             prevButton.Enabled = true;
             wp.Navigate();
-            SaveToXml(secSearchBar.Text);
+            SaveToXmlHis(secSearchBar.Text);
         }
         private void refreshButton_Click(object sender, EventArgs e)
         {
@@ -101,7 +103,7 @@ namespace WebBrowser
                     wp.URL = secSearchBar.Text;
                     wp.Navigate();
                     SetPage(wp);
-                    SaveToXml(secSearchBar.Text);
+                    SaveToXmlHis(secSearchBar.Text);
                 }
             }
         }
@@ -115,7 +117,7 @@ namespace WebBrowser
         }
         private void addToFavList_Click(object sender, EventArgs e)
         {
-            fp.fav.Add(secSearchBar.Text);
+            SaveToListFav(secSearchBar.Text);
         }
         private void ResizeUC(Rectangle r, Control us)
         {
@@ -163,12 +165,8 @@ namespace WebBrowser
             Controls.Add(fp);
             fp.ShowFav(fp.fav);
             fp.BringToFront();
-            if (hp.check == true)
-            {
-                DeleteData(data.DocumentElement);
-            }
         }
-        public void SaveToXml(string url)
+        public void SaveToXmlHis(string url)
         {
             XmlElement root = data.DocumentElement;
             XmlElement site = data.CreateElement("site");
@@ -184,16 +182,48 @@ namespace WebBrowser
             data.Save(@"./../../HistoryData.xml");
             hp.hist.Add($"{url} {DateTime.Now:dd.MM.yyyy | hh:mm:ss tt}");
         }
-        public void ToList(List<string> list, XmlElement doc) // добавление информации при запуске прграммы
+        public void SaveToListFav(string url)
+        {
+            XmlElement root = dataFav.DocumentElement;
+            XmlElement site = dataFav.CreateElement("site");
+            XmlElement URL = dataFav.CreateElement("url");
+            XmlText urltext = dataFav.CreateTextNode(url);
+            URL.AppendChild(urltext);
+            site.AppendChild(URL);
+            root.AppendChild(site);
+            dataFav.Save(@"./../../FavData.xml");
+            fp.fav.Add($"{url}");
+        }
+        public void ToListHis(List<string> list, XmlElement doc) // добавление информации при запуске прграммы
         {
             foreach (XmlElement elem in doc)
             {
                 list.Add($"{elem.ChildNodes[0].InnerText} {elem.ChildNodes[1].InnerText}");
             }
         }
-        public void DeleteData(XmlElement data)
+        public void ToListFav(List<string> list, XmlElement doc) // добавление информации при запуске прграммы
         {
-            foreach (XmlNode elem in data) elem.RemoveAll();
+            foreach (XmlElement elem in doc)
+            {
+                list.Add($"{elem.ChildNodes[0].InnerText}");
+            }
+        }
+        public void DeleteDataHis()
+        {
+            for (int i = 0; i < hp.hist.Count; i++)
+            {
+                XmlElement root = data.DocumentElement;
+                XmlNode node = root.FirstChild;
+                root.RemoveChild(node);
+                data.Save(@"./../../HistoryData.xml");
+            }
+        }
+        public void DeleteDataFav(string url)
+        {
+            XmlElement root = data.DocumentElement;
+            XmlNode node = root.SelectSingleNode($"site[url='{url}']");
+            root.RemoveChild(node);
+            data.Save(@"./../../FavData.xml");
         }
     }   
 }

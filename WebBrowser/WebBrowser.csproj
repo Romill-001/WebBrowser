@@ -111,6 +111,7 @@
     <None Include="Resources\icons8-search-22.png" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="FavData.xml" />
     <Content Include="HistoryData.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

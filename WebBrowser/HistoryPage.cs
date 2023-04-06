@@ -15,7 +15,6 @@ namespace WebBrowser
     {
         public List<Panel> Panels = new List<Panel>();
         public List<string> hist = new List<string>();
-        public bool check { get; set; }
         public HistoryPage()
         {
             InitializeComponent();
@@ -60,7 +59,8 @@ namespace WebBrowser
                 {
                     panel.Visible = false;
                 }
-                check = true;
+                MainForm m = new MainForm();
+                m.DeleteDataHis();
             }
             else
             {
