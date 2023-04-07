@@ -30,7 +30,6 @@ namespace WebBrowser
         {
             data.Load(@"./../../HistoryData.xml");
             dataFav.Load(@"./../../FavData.xml");
-            //dataFav.Save(@"./../../FavData.xml");
             wp.Location = new Point(0, 31);
             hp.Location = new Point(0, 31);
             fp.Location= new Point(0, 31);
