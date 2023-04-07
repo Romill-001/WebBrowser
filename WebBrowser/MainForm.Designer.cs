@@ -67,11 +67,11 @@
             this.label.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.label.AutoSize = true;
             this.label.Font = new System.Drawing.Font("Consolas", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label.Location = new System.Drawing.Point(331, 117);
+            this.label.Location = new System.Drawing.Point(314, 116);
             this.label.Name = "label";
-            this.label.Size = new System.Drawing.Size(119, 32);
+            this.label.Size = new System.Drawing.Size(149, 32);
             this.label.TabIndex = 1;
-            this.label.Text = "Браузер";
+            this.label.Text = "Ильяндекс";
             // 
             // label1
             // 

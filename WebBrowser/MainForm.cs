@@ -207,6 +207,7 @@ namespace WebBrowser
         }
         public void SaveToXmlHis(string url)
         {
+            dataFav.Load(@"./../../FavData.xml");
             XmlElement root = data.DocumentElement;
             XmlElement site = data.CreateElement("site");
             XmlElement URL = data.CreateElement("url");
