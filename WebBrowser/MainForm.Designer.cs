@@ -55,6 +55,7 @@
             this.searchBar.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.searchBar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.searchBar.Location = new System.Drawing.Point(158, 169);
+            this.searchBar.MaxLength = 200;
             this.searchBar.Name = "searchBar";
             this.searchBar.Size = new System.Drawing.Size(433, 24);
             this.searchBar.TabIndex = 0;
@@ -135,6 +136,7 @@
             this.secSearchBar.Enabled = false;
             this.secSearchBar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.secSearchBar.Location = new System.Drawing.Point(144, 3);
+            this.secSearchBar.MaxLength = 200;
             this.secSearchBar.Name = "secSearchBar";
             this.secSearchBar.ReadOnly = true;
             this.secSearchBar.Size = new System.Drawing.Size(592, 24);
@@ -230,7 +232,7 @@
             // историяToolStripMenuItem
             // 
             this.историяToolStripMenuItem.Name = "историяToolStripMenuItem";
-            this.историяToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
+            this.историяToolStripMenuItem.Size = new System.Drawing.Size(151, 24);
             this.историяToolStripMenuItem.Text = "История";
             this.историяToolStripMenuItem.Click += new System.EventHandler(this.историяToolStripMenuItem_Click);
             // 

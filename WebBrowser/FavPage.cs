@@ -14,7 +14,8 @@ namespace WebBrowser
     {
         public List<Panel> Panels = new List<Panel>();
         public List<string> fav = new List<string>();
-        List<string> deleted = new List<string>();
+        public List<deletedNodes> deleted = new List<deletedNodes>();
+        public List<int> tags = new List<int>();
         public FavPage()
         {
             InitializeComponent();
@@ -37,7 +38,7 @@ namespace WebBrowser
                 {
                     Text = "Удалить",
                     FlatStyle = FlatStyle.Flat,
-                    Size = new Size(70,26),
+                    Size = new Size(70, 26),
                     Font = new Font("Microsoft Sans Serif", 8, FontStyle.Regular, GraphicsUnit.Point, ((byte)(204))),
                     Location = new Point(626, 1),
                     Tag = i
@@ -64,11 +65,15 @@ namespace WebBrowser
             {
                 if (Panels[i].Tag.Equals(this_tag))
                 {
+                    deletedNodes del = new deletedNodes();
+                    del.url = fav[i];
+                    del.tag = this_tag;
                     Panels[i].Visible = false;
-                    deleted.Add(fav[i]);
+                    deleted.Add(del);
+                    tags.Add(this_tag);
                     for (int j = i; j < Panels.Count; j++)
                     {
-                        Panels[j].Location = new Point(Panels[j].Location.X, Panels[j].Location.Y-30);
+                        Panels[j].Location = new Point(Panels[j].Location.X, Panels[j].Location.Y - 30);
                     }
                 }
             }
@@ -77,10 +82,19 @@ namespace WebBrowser
         public void Del()
         {
             MainForm m = new MainForm();
-            foreach(string t in deleted)
+            tags.Sort();
+            foreach (var t in deleted)
             {
-                m.DeleteDataFav(t);
-                fav.Remove(t);
+                for (int i = 0; i < tags.Count; i++) 
+                {
+                    if (t.tag == tags[i] && t.url == fav[tags[i]])
+                    {
+                        m.DeleteDataFav(t.url);
+                        fav.Remove(t.url);
+                        tags.RemoveAt(i);
+                    }
+                }
+
             }
         }
         private void closeButton_Click(object sender, EventArgs e)
@@ -91,6 +105,14 @@ namespace WebBrowser
                 Panels[i].Dispose();
             }
             Panels.Clear();
+            MainForm m = new MainForm();
+            m.dataFav.Save(@"./../../FavData.xml");
         }
+    }
+    public class deletedNodes
+    {
+        public int tag { get; set; }
+        public string url { get; set; }
+
     }
 }

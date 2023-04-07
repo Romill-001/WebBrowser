@@ -23,13 +23,14 @@ namespace WebBrowser
         public Rectangle origUCSize;
         public Rectangle origUCSizeHis;
         public Rectangle origUCSizeFav;
-        XmlDocument data = new XmlDocument();
-        XmlDocument dataFav = new XmlDocument();
+        public XmlDocument data = new XmlDocument();
+        public XmlDocument dataFav = new XmlDocument();
         public int index = -1;
         public MainForm()
         {
             data.Load(@"./../../HistoryData.xml");
             dataFav.Load(@"./../../FavData.xml");
+            //dataFav.Save(@"./../../FavData.xml");
             wp.Location = new Point(0, 31);
             hp.Location = new Point(0, 31);
             fp.Location= new Point(0, 31);
@@ -39,7 +40,11 @@ namespace WebBrowser
         }
         private void searchButton_Click(object sender, EventArgs e)
         {
-            if (!String.IsNullOrEmpty(searchBar.Text))
+            if (String.IsNullOrEmpty(searchBar.Text) || searchBar.Text.Length > searchBar.MaxLength)
+            {
+                MessageBox.Show("Некорректный ввод!");
+            }
+            else
             {
                 index += 1;
                 secSearchBar.Text = searchBar.Text;
@@ -84,11 +89,18 @@ namespace WebBrowser
         }
         private void secSearchButton_Click(object sender, EventArgs e)
         {
-            index += 1;
-            wp.URL = secSearchBar.Text;
-            prevButton.Enabled = true;
-            wp.Navigate();
-            SaveToXmlHis(secSearchBar.Text);
+            if (String.IsNullOrEmpty(secSearchBar.Text) || secSearchBar.Text.Length > secSearchBar.MaxLength)
+            {
+                MessageBox.Show("Некорректный ввод!");
+            }
+            else
+            {
+                index += 1;
+                wp.URL = secSearchBar.Text;
+                prevButton.Enabled = true;
+                wp.Navigate();
+                SaveToXmlHis(secSearchBar.Text);
+            }
         }
         private void refreshButton_Click(object sender, EventArgs e)
         {
@@ -102,7 +114,11 @@ namespace WebBrowser
         {
             if (e.KeyChar == (char)Keys.Enter)
             {
-                if (!String.IsNullOrEmpty(searchBar.Text))
+                if (String.IsNullOrEmpty(searchBar.Text) || searchBar.Text.Length > searchBar.MaxLength)
+                {
+                    MessageBox.Show("Некорректный ввод!");
+                }
+                else
                 {
                     index += 1;
                     secSearchBar.Text = searchBar.Text;
@@ -111,7 +127,6 @@ namespace WebBrowser
                     secSearchButton.Enabled = true;
                     secSearchBar.Visible = true;
                     secSearchButton.Visible = true;
-                    prevButton.Enabled = true;
                     refreshButton.Enabled = true;
                     stopLoadButton.Enabled = true;
                     addToFavList.Enabled = true;
@@ -126,9 +141,18 @@ namespace WebBrowser
         {
             if (e.KeyChar == (char)Keys.Enter)
             {
-                index += 1;
-                wp.URL = secSearchBar.Text;
-                wp.Navigate();
+                if (String.IsNullOrEmpty(secSearchBar.Text) || secSearchBar.Text.Length > secSearchBar.MaxLength)
+                {
+                    MessageBox.Show("Некорректный ввод!");
+                }
+                else
+                {
+                    index += 1;
+                    wp.URL = secSearchBar.Text;
+                    prevButton.Enabled = true;
+                    wp.Navigate();
+                    SaveToXmlHis(secSearchBar.Text);
+                }
             }
         }
         private void addToFavList_Click(object sender, EventArgs e)
@@ -200,13 +224,19 @@ namespace WebBrowser
         }
         public void SaveToListFav(string url)
         {
+            dataFav.Load(@"./../../FavData.xml");
             XmlElement root = dataFav.DocumentElement;
-            XmlElement site = dataFav.CreateElement("site");
-            XmlElement URL = dataFav.CreateElement("url");
-            XmlText urltext = dataFav.CreateTextNode(url);
-            URL.AppendChild(urltext);
-            site.AppendChild(URL);
-            root.AppendChild(site);
+            //XmlElement site = dataFav.CreateElement("site");
+            //XmlElement URL = dataFav.CreateElement("url");
+            //XmlText urltext = dataFav.CreateTextNode(url);
+            //URL.AppendChild(urltext);
+            //site.AppendChild(URL);
+            //root.AppendChild(site);
+            XmlNode node = dataFav.CreateNode(XmlNodeType.Element, "site", "");
+            XmlNode url1 = dataFav.CreateNode(XmlNodeType.Element, "url", "");
+            url1.InnerText = url;
+            node.AppendChild(url1);
+            root.AppendChild(node);
             dataFav.Save(@"./../../FavData.xml");
             fp.fav.Add($"{url}");
         }
@@ -236,10 +266,13 @@ namespace WebBrowser
         }
         public void DeleteDataFav(string url)
         {
-                XmlElement root = dataFav.DocumentElement;
-                XmlNode node = root.SelectSingleNode($"site[url='{url}']");
+            XmlElement root = dataFav.DocumentElement;
+            XmlNode node = root.SelectSingleNode($"site[url='{url}']");
+            if (node != null)
+            {
                 root.RemoveChild(node);
                 dataFav.Save(@"./../../FavData.xml");
+            }
         }
     }   
 }
